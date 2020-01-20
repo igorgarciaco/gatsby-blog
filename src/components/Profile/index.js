@@ -2,6 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Avatar from '../Avatar'
+import * as S from './styled'
 
 const Profile = () => {
     const {
@@ -22,13 +23,16 @@ const Profile = () => {
     `)
 
     return (
-        <div className="profile-wrapper">
-        <Avatar />
-        <h1>{title}</h1>
-        <h2>{author}</h2>
-        <h3>{role}</h3>
-        <p>{description}</p>
-    </div>
+        <S.ProfileWrapper>
+            <S.ProfileLink>
+                <Avatar />
+                <S.ProfileAuthor>
+                    {author}
+                    <S.ProfileRole>{role}</S.ProfileRole>
+                </S.ProfileAuthor>
+            </S.ProfileLink>
+            <S.ProfileDescription>{description}</S.ProfileDescription>
+        </S.ProfileWrapper>
     )
 }
 
